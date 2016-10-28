@@ -1,5 +1,7 @@
 <h1>Home</h1>
 {{#each model as |question|}}
-  <h3>{{question.title}}</h3>
-  <p>By {{question.author}}</p>
+  {{#link-to 'question' question.id}}
+    <h3>{{question.title}}</h3>
+    <p>By {{question.author}}</p>
+  {{/link-to}}
 {{/each}}
