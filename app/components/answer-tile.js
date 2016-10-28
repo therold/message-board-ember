@@ -28,6 +28,12 @@ export default Ember.Component.extend({
     },
     delete(answer) {
       this.sendAction('delete', answer);
+    },
+    upvote(answer) {
+      this.sendAction('upvote', answer);
+    },
+    downvote(answer) {
+      this.sendAction('downvote', answer);
     }
   }
 });

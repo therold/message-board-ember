@@ -52,3 +52,7 @@ a:hover {
 .thumbs {
   margin-right: 3px;
 }
+
+.voteIcon {
+  cursor: pointer;
+}
