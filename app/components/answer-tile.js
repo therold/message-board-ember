@@ -25,6 +25,9 @@ export default Ember.Component.extend({
     update(answer, params) {
       this.sendAction('update', answer, params);
       this.set('answerToUpdate', null);
+    },
+    delete(answer) {
+      this.sendAction('delete', answer);
     }
   }
 });
