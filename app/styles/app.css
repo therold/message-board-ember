@@ -15,6 +15,7 @@ a:hover {
   font-size: 0.75em;
 }
 
+.answer-by:hover .edit-link,
 .question-title:hover .edit-link {
   display: inline-block;
   cursor: pointer;

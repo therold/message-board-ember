@@ -4,9 +4,13 @@
 {{/if}}
 <div class="answer-list">
   {{#each question.answers as |answer|}}
-    <div class="answer">
-      <p>{{answer.body}}</p>
-      <p><em>By {{answer.author}} {{answer.date}} ago</em></p>
-    </div>
+    {{#if (eq answerToUpdate answer.id)}}
+      {{update-answer}}
+    {{else}}
+      <div class="answer">
+        <p>{{answer.body}}</p>
+        <p class="answer-by"><em>By {{answer.author}} {{answer.date}} ago</em> <span class="glyphicon glyphicon-pencil edit-link" {{action 'showUpdate' answer}}></span></p>
+      </div>
+      {{/if}}
   {{/each}}
 </div>
