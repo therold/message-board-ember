@@ -15,6 +15,38 @@
     {{textarea value=body id="body" class="form-control" rows=8 required="required"}}
   </div>
 
+  <label>Tags</label>
+    <div class="form-group">
+      <div class="tags input-group">
+
+      <!-- Code review note: the button bar is repeated here because the bootstrap input-group-btn class doesn't behave properly if it's opening and closing tags are divided by ember handlebar tags. The buttons do not group properly otherwise. -->
+      {{#if isNewTagsShowing}}
+        <span class="input-group-btn">
+          {{#each question.tags as |tag|}}
+            {{#if (array-contains removeTags tag.id)}}
+              <button {{action 'undoRemoveTag' tag}} class="btn btn-danger">{{tag.name}}</button>
+            {{else}}
+              <button {{action 'removeTag' tag}} class="btn btn-default">{{tag.name}}</button>
+            {{/if}}
+          {{/each}}
+        </span>
+        {{input value=newTags id="newTags" class="form-control"}}
+      {{else}}
+        <span class="input-group-btn">
+          {{#each question.tags as |tag|}}
+            {{#if (array-contains removeTags tag.id)}}
+              <button {{action 'undoRemoveTag' tag}} class="btn btn-danger">{{tag.name}}</button>
+            {{else}}
+              <button {{action 'removeTag' tag}} class="btn btn-default">{{tag.name}}</button>
+            {{/if}}
+          {{/each}}
+          <button {{action 'showNewTags'}} class="btn btn-info">+</button>
+        </span>
+      {{/if}}
+
+      </div>
+    </div>
+
   <button class="btn btn-warning">Update Question</button>
   <button class="btn btn-default" {{action 'cancel'}}>Cancel</button>
   <button class="btn btn-danger pull-right" {{action 'delete' question}}>Delete Question</button>

@@ -10,8 +10,8 @@ export default Ember.Component.extend({
     cancelUpdate() {
       this.set('showEdit', false);
     },
-    update(question, params) {
-      this.sendAction('update', question, params);
+    update(question, params, newTags, removeTags) {
+      this.sendAction('update', question, params, newTags, removeTags);
       this.set('showEdit', false);
     },
     delete(question) {
