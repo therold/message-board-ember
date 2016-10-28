@@ -8,6 +8,10 @@ export default Ember.Component.extend({
     },
     cancelAddAnswer() {
       this.set('showAddAnswer', false);
+    },
+    save(params) {
+      this.set('showAddAnswer', false);
+      this.sendAction('save', params);
     }
   }
 });

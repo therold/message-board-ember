@@ -5,4 +5,16 @@ export default Ember.Route.extend({
     return this.store.findRecord('question', params.question_id);
   },
 
+  actions: {
+    saveAnswer(params) {
+      var answer = this.store.createRecord('answer', params);
+      var question = params.question;
+      question.get('answers').addObject(answer);
+      answer.save().then(() => {
+        return question.save();
+      });
+      this.transitionTo('question', question);
+    }
+  }
+
 });
