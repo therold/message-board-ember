@@ -2,3 +2,11 @@
 {{#if showAddAnswer}}
   {{add-answer question=question cancel="cancelAddAnswer" save="save"}}
 {{/if}}
+<div class="answer-list">
+  {{#each question.answers as |answer|}}
+    <div class="answer">
+      <p>{{answer.body}}</p>
+      <p><em>By {{answer.author}} {{answer.date}} ago</em></p>
+    </div>
+  {{/each}}
+</div>
