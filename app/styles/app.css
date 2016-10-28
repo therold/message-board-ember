@@ -10,12 +10,17 @@ a:hover {
   text-decoration: none;
 }
 
-.glyphicon {
+.edit-link {
   display: none;
   font-size: 0.75em;
 }
 
-.question-title:hover .glyphicon {
+.question-title:hover .edit-link {
   display: inline-block;
   cursor: pointer;
+}
+
+.add-link {
+  cursor: pointer;
+  font-size: 0.75em;
 }
