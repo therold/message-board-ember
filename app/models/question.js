@@ -8,6 +8,7 @@ export default DS.Model.extend({
   author: DS.attr('string'),
   timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
   answers: DS.hasMany('answer', { async: true }),
+  tags: DS.hasMany('tag', { async: true }),
 
   date: Ember.computed('timestamp', function() {
     var now = moment();
