@@ -11,7 +11,8 @@ export default Ember.Component.extend({
         author: this.get('author'),
         body: this.get('body')
       };
-      this.sendAction('save', params);
+      var tags = this.get('tags');
+      this.sendAction('save', params, tags);
       this.set('title', '');
       this.set('author', '');
       this.set('body', '');
