@@ -32,4 +32,23 @@ a:hover {
   border-radius: 20px;
   margin: 10px;
   padding: 10px 20px;
+  display: table;
+}
+.score-cell {
+  padding-right: 10px;
+}
+.answer-cell {
+  width: 100%;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+.thumbs {
+  margin-right: 3px;
 }

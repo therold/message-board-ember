@@ -5,6 +5,7 @@ import moment from 'moment';
 export default DS.Model.extend({
   body: DS.attr('string'),
   author: DS.attr('string'),
+  score: DS.attr('number', { defaultValue() { return 1; }}),
   timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
   question: DS.belongsTo('question', { async: true }),
 
