@@ -5,7 +5,7 @@
 <div class="answer-list">
   {{#each question.answers as |answer|}}
     {{#if (eq answerToUpdate answer.id)}}
-      {{update-answer}}
+      {{update-answer answer=answer question=question cancel="cancelUpdate" update="update"}}
     {{else}}
       <div class="answer">
         <p>{{answer.body}}</p>
