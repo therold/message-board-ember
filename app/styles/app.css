@@ -9,3 +9,13 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+.glyphicon {
+  display: none;
+  font-size: 0.75em;
+}
+
+.question-title:hover .glyphicon {
+  display: inline-block;
+  cursor: pointer;
+}
