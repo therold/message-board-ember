@@ -1,5 +1,5 @@
 {{#if showEdit}}
-  {{update-question question=question cancel="cancelUpdate" update="update"}}
+  {{update-question question=question cancel="cancelUpdate" update="update" delete="delete"}}
 {{else}}
   <h3 class="question-title">{{question.title}} <span class="glyphicon glyphicon-pencil edit-link" {{action 'enableUpdate'}}></span></h3>
   <p>{{question.body}}</p>
