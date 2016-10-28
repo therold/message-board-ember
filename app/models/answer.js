@@ -3,12 +3,11 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default DS.Model.extend({
-  title: DS.attr('string'),
   body: DS.attr('string'),
   author: DS.attr('string'),
   timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
-  answer: DS.hasMany('answer', { async: true }),
-  
+  question: DS.belongsTo('question', { async: true }),
+
   date: Ember.computed('timestamp', function() {
     var now = moment();
     var then = this.get('timestamp');
