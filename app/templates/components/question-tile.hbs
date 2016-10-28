@@ -1,3 +1,7 @@
-<h3 class="question-title">{{question.title}} {{#link-to 'edit-question' question.id}}<span class="glyphicon glyphicon-pencil edit-link"></span>{{/link-to}}</h3>
-<p>{{question.body}}</p>
-<p><em>Posted by {{question.author}} {{question.date}}</em></p>
+{{#if showEdit}}
+  {{update-question question=question cancel="cancelUpdate" update="update"}}
+{{else}}
+  <h3 class="question-title">{{question.title}} <span class="glyphicon glyphicon-pencil edit-link" {{action 'enableUpdate'}}></span></h3>
+  <p>{{question.body}}</p>
+  <p><em>Posted by {{question.author}} {{question.date}}</em></p>
+{{/if}}

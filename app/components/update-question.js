@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   },
   actions: {
     cancel() {
-      history.back();
+      this.sendAction('cancel');
     },
     update(question) {
       var params = {

@@ -6,6 +6,12 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    updateQuestion(question, params) {
+      Object.keys(params).forEach(function(key) {
+        question.set(key, params[key]);
+      });
+      question.save();
+    },
     saveAnswer(params) {
       var answer = this.store.createRecord('answer', params);
       var question = params.question;
