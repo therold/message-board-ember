@@ -21,6 +21,11 @@ _This application is designed to allow users to post questions, and respond to o
   * ember server
 * Open the site in your favorite web browser:
   * [http://localhost:4200](http://localhost:4200)
+* For testing purposes we've included two databases. One contains example data, and the other is blank.
+* To load the example data, run the following from the terminal:
+  * ./import_data.sh
+* To load the blank data (thus wiping the database), run the following from the terminal:
+ * ./import_blank.sh
 
 ## Minimum Requirements
 
