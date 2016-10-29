@@ -1,137 +1,218 @@
 {
   "answers" : {
-    "-KVBK-1Wgl-13v9t3oCs" : {
-      "author" : "test",
-      "body" : "test",
-      "question" : "-KV8hSsOMViCMdJgRxdp",
-      "score" : -2,
-      "timestamp" : 1477675581661
-    },
-    "-KVBN42u8fTAzdQ8xmJT" : {
-      "author" : " asdf test",
-      "body" : "test asdf jklasdf jkasd;flj askdfl; asjdf aldfjaodf aodfjaoasdffj aodjoadf",
-      "question" : "-KV8hSsOMViCMdJgRxdp",
-      "score" : 7,
-      "timestamp" : 1477676388675
-    },
-    "-KVBQeXcCcgprXybFS46" : {
-      "author" : "wwww",
-      "body" : "eee",
-      "question" : "-KV8hSsOMViCMdJgRxdp",
+    "-KVH6yakw17z5opnw77M" : {
+      "author" : "Kev",
+      "body" : "Tutorials\n\nNodeSchool.io interactive lessons\nThe Art of Node (an introduction to Node)\nHello World\nHello World Web Server (paid)\nNode.js guide\nBuild a blog with Node.js, express and MongoDB\nNode.Js Tutorials At Project 70\nNode.js for Beginners\nLearn Node.js Completely and with Confidence\nAbsolute Beginners Guide To Node.js\nNode JS Processing Model – Single Threaded Model with Event Loop Architecture\nRisingStack's Node Hero Series\nDeveloper Sites\n\nJoyent's developer site for node\nVideos\n\nNode tuts\nIntroduction to Node.js with Ryan Dahl\nNode.js: Asynchronous Purity Leads to Faster Development\nParallel Programming with Node.js\nServer-side JavaScript with Node, Connect & Express\nNode.js First Look\nNode.js with MongoDB\nRyan Dahl's Google Tech Talk\nReal Time Web with Node.js\nNode.js Tutorials for Beginners\nPluralsight courses (paid)\nScreencasts\n\nLearn All The Nodes\nNodeTuts\nNodeCasts\nCreate server-side MVC apps with Node.js and Express\nBooks\n\nThe Node Beginner Book\nMastering Node.js\nUp and Running with Node.js\nNode.js in Action\nSmashing Node.js: JavaScript Everywhere\nNode.js & Co. (in German)\nSam's Teach Yourself Node.js in 24 Hours\nMost detailed list of free JavaScript Books\nMixu's Node Book\nNode.js the Right Way: Practical, Server-Side JavaScript That Scale\nBeginning Web Development with Node.js\nNode Web Development\nNodeJS for Righteous Universal Domination!\nCourses\n\nReal Time Web with Node.js\nEssential Node.js from DevelopMentor\nBlogs\n\nThe Node.js blog\nHow To Node\nDailyJS\nNodejitsu blog\nRyan Wilcox's Whitepaper\ndevthought\nPodcasts\n\nNodeUp\nJavaScript resources\n\nCrockford's videos (must see!)\nEssential JavaScript Design Patterns For Beginners\nJavaScript garden\nJavaScript Patterns book\nJavaScript: The Good Parts book\nNode.js Modules\n\nSearch for registered Node.js modules\nA curated list of awesome Node.js libraries\nWiki List on GitHub/Joyent/Node.js (start here last!)\nOther\n\nJSApp.US - like jsfiddle, but for Node.js\nNode with VJET JS (for Eclipse IDE)\nProduction sites with published source:\nNode Knockout Hackathon (source)\nUseful Node.js Tools, Tutorials and Resources\nRunnable.com - like jsfiddle, but for server side as well\nGetting Started with Node.js on Heroku\nGetting Started with Node.js on Open-Shift\nAuthentication using Passport",
+      "question" : "-KVH6fCVjvykG96BX2rR",
       "score" : 1,
-      "timestamp" : 1477677328619
+      "timestamp" : 1477772831217
+    },
+    "-KVHNwwiylZEeMTkpFS7" : {
+      "author" : "Nevir",
+      "body" : "First, learn the core concepts of Node.js:\n\nYou'll want to understand the asynchronous coding style that Node encourages.\nAsync != concurrent. Understand Node's event loop!\nNode uses CommonJS-style require() for code loading; it's probably a bit different from what you're used to.\nFamiliarize yourself with Node's standard library.\nThen, you're going to want to see what the community has to offer:\n\nThe gold standard for Node.js package management is NPM.\n\nIt is a command line tool for managing your project's dependencies.\nMake sure you understand how Node and NPM interact with your project via the node_modules folder and package.json.\nNPM is also a registry of pretty much every Node.js package out there\nFinally, you're going to want to know what some of the more popular packages are for various tasks:\n\nUseful Tools for Every Project:\n\nUnderscore contains just about every core utility method you want.\nLo-Dash is a clone of Underscore that aims to be faster, more customizable, and has quite a few functions that underscore doesn't have. Certain versions of it can be used as drop-in replacements of underscore.\nTypeScript makes JavaScript considerably more bearable, while also keeping you out of trouble!\nJSHint is a code-checking tools that'll save you loads of time finding stupid errors. Find a plugin for your text editor that will automatically run it on your code.\nUnit Testing:\n\nMocha is a popular test framework.\nVows is a fantastic take on asynchronous testing, albeit somewhat stale.\nExpresso is a more traditional unit testing framework.\nnode-unit is another relatively traditional unit testing framework.\nAVA is a new test runner with Babel builtin and runs tests concurrently.\nWeb Frameworks:\n\nExpress.js is by far the most popular framework.\nKoa is a new web framework designed by the team behind Express.js, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.\nsails.js the most popular MVC framework for node, and is based on express. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.\nMeteor bundles together jQuery, Handlebars, Node.js, WebSocket, MongoDB, and DDP and promotes convention over configuration without being a Ruby on Rails clone.\nTower (deprecated) is an abstraction of top of Express.js that aims to be a Ruby on Rails clone.\nGeddy is another take on web frameworks.\nRailwayJS is a Ruby on Rails inspired MVC web framework.\nSleek.js is a simple web framework, built upon Express.js.\nHapi is a configuration-centric framework with built-in support for input validation, caching, authentication, etc.\nTrails is a modern web application framework. It builds on the pedigree of Rails and Grails to accelerate development by adhering to a straightforward, convention-based, API-driven design philosophy.\nDanf is a full-stack OOP framework providing many features in order to produce a scalable, maintainable, testable and performant applications and allowing to code the same way on both the server (node.js) and client (browser) sides.\nDerbyjs is a reactive full-stack javascript framework. They are using patterns like reactive programming and isomorphic JS for a long time.\nLoopback.io is a powerful Node.js framework for creating APIs and easily connecting to backend data sources. It has a Angular.js SDK and provides SDKs for iOS and Android.\nWeb Framework Tools:\n\nJade is the HAML/Slim of the Node.js world\nEJS is a more traditional templating language.\nDon't forget about Underscore's template method!\nNetworking:\n\nConnect is the Rack or WSGI of the Node.js world.\nRequest is a very popular HTTP request library.\nsocket.io is handy for building WebSocket servers.\nCommand Line Interaction:\n\nminimist just command line argument parsing.\nYargs is a powerful library for parsing command-line arguments.\nCommander.js is a complete solution for building single-use command-line applications.\nVorpal.js is a framework for building mature, immersive command-line applications.\nChalk makes your CLI output pretty.\nWork with streams:\n\nmississipi everything you miss about streams.\nhttps://github.com/calvinmetcalf/streams-a-love-story\nhttp://maxogden.com/node-streams.html\nhttps://github.com/substack/stream-handbook\n",
+      "question" : "-KVH6fCVjvykG96BX2rR",
+      "score" : 1,
+      "timestamp" : 1477777280868
+    },
+    "-KVHOWi2eYGCEWEiQ-V1" : {
+      "author" : "Zach B",
+      "body" : "Use the source, Luke.\n\nNo but seriously I found that building Node from source, running the tests, and looking at the benchmarks did get me on the right track. From there, the .js files in the lib directory are a good place to look, especially the file http.js.\n\nUpdate: I wrote this answer over a year ago, and since that time there has explosion in the number of great resources available for people learning node. Though I still believe diving into the source is worthwhile, I think that there are now better ways to get started. I would suggest some of the books on node that are starting to come out.",
+      "question" : "-KVH6fCVjvykG96BX2rR",
+      "score" : 1,
+      "timestamp" : 1477777431497
+    },
+    "-KVHPMFrBzL72FyAjSPM" : {
+      "author" : "Julien",
+      "body" : "This code could did the trick without using any String:\n\nint sum= 0;\nint digit=0;\nint number= your_value;\nwhile ( number > 0 )\n{\n    digit=number % 10; // we look at the \"last\" digit \n    if ( digit %2 == 1 ) // odd digiti\n    {\n        sum+=digit;\n    }\n    number/=10;\n}",
+      "question" : "-KVHP9kq7DIJY7DGzPmv",
+      "score" : 2,
+      "timestamp" : 1477777650792
+    },
+    "-KVHQLtNZd39lWzn3klz" : {
+      "author" : "oliverkn",
+      "body" : "public static int sumOfOddsInNumber(int n)\n{\n    String valueString = String.valueOf(n);\n    int sum = 0;\n\n    for (int i = 0; i < valueString.length(); i++)\n    {\n        int value = Integer.parseInt(valueString.substring(i, i + 1));\n        if (value % 2 != 0)\n            sum += value;\n    }\n\n    return sum;\n}",
+      "question" : "-KVHP9kq7DIJY7DGzPmv",
+      "score" : 3,
+      "timestamp" : 1477777911466
+    },
+    "-KVHT3_1G37WudcFZCQ5" : {
+      "author" : "Kon",
+      "body" : "I'm not going to give you the full solution, but here are the things you'll need to know to do it correctly and if you understand them, the problem becomes quite simple:\n\nIf you have an integer k, you can convert it to a String with:\n\nString s = String.valueOf(k);\nThis will allow you to more simply loop over the individual characters of the String, which represent the digits of the number. Then you can iterate over the characters one by one with\n\nchar c = s.charAt(0);\nWhere 0 can be a loop index variable that can loop from the first character (index 0) to the last (index s.length - 1 for String s)\n\nThen it becomes a matter of converting these back to an integer, which is straightforward, and then checking if they are even or odd. The standard way to do this is with a modulus.\n\nint k = 7;\nif (k % 2 == 0) //k is even\nelse //k is odd\nThis works because any number mod 2 will return 0 only if it is an even number. Otherwise it will return 1.\n\n",
+      "question" : "-KVHP9kq7DIJY7DGzPmv",
+      "score" : 12,
+      "timestamp" : 1477778622830
+    },
+    "-KVHTZuZEAGtosd2AFCx" : {
+      "author" : "David47",
+      "body" : "public int SumOfDigits(int num)\n{\n    if (num < 10) return num;\n    return num % 10 + SumOfDigits(num / 10);\n}\nthis does not use string and this is recursive (it is c# but I think it will also work on java since they're pretty much similar)\n\nUpdate:\n\n        public int SumOfOddDigits(int num)\n        {\n            int rem = num % 10;\n            if (num < 10)\n            {\n                if (rem % 2 != 0)\n                    return num;\n                return 0;\n            }\n            if (rem % 2 != 0)\n                return rem + SumOfOddDigits(num / 10);\n            return SumOfOddDigits(num / 10);",
+      "question" : "-KVHP9kq7DIJY7DGzPmv",
+      "score" : -1,
+      "timestamp" : 1477778755282
+    },
+    "-KVHWaZY8ymiuj6Hz-AC" : {
+      "author" : "erlando",
+      "body" : "Java is always pass-by-value. Unfortunately, they decided to call pointers references, thus confusing newbies. Because those references are passed by value.\n\nIt goes like this:\n\npublic static void main( String[] args ){\n    Dog aDog = new Dog(\"Max\");\n    foo(aDog);\n\n    if (aDog.getName().equals(\"Max\")) { //true\n        System.out.println( \"Java passes by value.\" );\n\n    } else if (aDog.getName().equals(\"Fifi\")) {\n        System.out.println( \"Java passes by reference.\" );\n    }\n}\n\npublic static void foo(Dog d) {\n    d.getName().equals(\"Max\"); // true\n\n    d = new Dog(\"Fifi\");\n    d.getName().equals(\"Fifi\"); // true\n}\nIn this example aDog.getName() will still return \"Max\". The value aDog within main is not overwritten in the function foo with the Dog \"Fifi\" as the object reference is passed by value. If it were passed by reference, then the aDog.getName() in main would return \"Fifi\" after the call to foo.\n\nLikewise:\n\nDog aDog = new Dog(\"Max\");\nfoo(aDog);\naDog.getName().equals(\"Fifi\"); // true\npublic void foo(Dog d) {\n    d.getName().equals(\"Max\"); // true\n    d.setName(\"Fifi\");\n}\nIn the above example, FiFi is the dog's name after call to foo(aDog). Any operations that foo performs on d are such that, for all practical purposes, they are performed on aDog itself (except d=new Dog(\"Boxer\")).",
+      "question" : "-KVHVy4bnQO2sQ6UOCHr",
+      "score" : 19,
+      "timestamp" : 1477779548535
+    },
+    "-KVHWlhvE-VoOiz76Ngt" : {
+      "author" : "Scott Stanchfield",
+      "body" : "I just noticed you referenced my article.\n\nThe Java Spec says that everything in Java is pass-by-value. There is no such thing as \"pass-by-reference\" in Java.\n\nThe key to understanding this is that something like\n\nDog myDog;\nis not a Dog; it's actually a pointer to a Dog.\n\nWhat that means, is when you have\n\nDog myDog = new Dog(\"Rover\");\nfoo(myDog);\nyou're essentially passing the address of the created Dog object to the foo method.\n\n(I say essentially because Java pointers aren't direct addresses, but it's easiest to think of them that way)\n\nSuppose the Dog object resides at memory address 42. This means we pass 42 to the method.\n\nif the Method were defined as\n\npublic void foo(Dog someDog) {\n    someDog.setName(\"Max\");     // AAA\n    someDog = new Dog(\"Fifi\");  // BBB\n    someDog.setName(\"Rowlf\");   // CCC\n}\nlet's look at what's happening.\n\nthe parameter someDog is set to the value 42\nat line \"AAA\"\nsomeDog is followed to the Dog it points to (the Dog object at address 42)\nthat Dog (the one at address 42) is asked to change his name to Max\nat line \"BBB\"\na new Dog is created. Let's say he's at address 74\nwe assign the parameter someDog to 74\nat line \"CCC\"\nsomeDog is followed to the Dog it points to (the Dog object at address 74)\nthat Dog (the one at address 74) is asked to change his name to Rowlf\nthen, we return\nNow let's think about what happens outside the method:\n\nDid myDog change?\n\nThere's the key.\n\nKeeping in mind that myDog is a pointer, and not an actual Dog, the answer is NO. myDog still has the value 42; it's still pointing to the original Dog (but note that because of line \"AAA\", its name is now \"Max\" - still the same Dog; myDog's value has not changed.)\n\nIt's perfectly valid to follow an address and change what's at the end of it; that does not change the variable, however.\n\nJava works exactly like C. You can assign a pointer, pass the pointer to a method, follow the pointer in the method and change the data that was pointed to. However, you cannot change where that pointer points.\n\nIn C++, Ada, Pascal and other languages that support pass-by-reference, you can actually change the variable that was passed.\n\nIf Java had pass-by-reference semantics, the foo method we defined above would have changed where myDog was pointing when it assigned someDog on line BBB.\n\nThink of reference parameters as being aliases for the variable passed in. When that alias is assigned, so is the variable that was passed in.",
+      "question" : "-KVHVy4bnQO2sQ6UOCHr",
+      "score" : 6,
+      "timestamp" : 1477779594182
+    },
+    "-KVHZMoeIj7eXiS3iOn_" : {
+      "author" : "Kathy Van Stone",
+      "body" : "No, the structure you found is how Java handles it (that is, with overloading instead of default parameters).\n\nFor constructors, See Effective Java: Programming Language Guide's Item 1 tip (Consider static factory methods instead of constructors) if the overloading is getting complicated. For other methods, renaming some cases or using a parameter object can help. This is when you have enough complexity that differentiating is difficult. A definite case is where you have to differentiate using the order of parameters, not just number and type.\n",
+      "question" : "-KVHZAF_d8BkKSqr--dF",
+      "score" : 25,
+      "timestamp" : 1477780274516
+    },
+    "-KVHZfl5vR253UECL-fY" : {
+      "author" : "Eli Courtwright",
+      "body" : "No, but you can use the Builder Pattern, as described in this Stack Overflow answer.\n\nAs described in the linked answer, the Builder Pattern lets you write code like\n\nStudent s1 = new StudentBuilder().name(\"Eli\").buildStudent();\nStudent s2 = new StudentBuilder()\n                 .name(\"Spicoli\")\n                 .age(16)\n                 .motto(\"Aloha, Mr Hand\")\n                 .buildStudent();\nin which some fields can have default values or otherwise be optional.",
+      "question" : "-KVHZAF_d8BkKSqr--dF",
+      "score" : 5,
+      "timestamp" : 1477780356209
     }
   },
   "questions" : {
-    "-KV8JcziRlvNO-e0u4xn" : {
-      "author" : "i am awesome",
-      "body" : "no",
-      "timestamp" : 1477625155631,
-      "title" : "test question"
-    },
-    "-KV8ZldSETyJiXe8zvlw" : {
-      "author" : "asdf",
-      "body" : "asdf",
-      "timestamp" : 1477629385351,
-      "title" : "asdf"
-    },
-    "-KV8hSsOMViCMdJgRxdp" : {
+    "-KVH6fCVjvykG96BX2rR" : {
       "answers" : {
-        "-KVBK-1Wgl-13v9t3oCs" : true,
-        "-KVBN42u8fTAzdQ8xmJT" : true,
-        "-KVBQeXcCcgprXybFS46" : true
+        "-KVH6yakw17z5opnw77M" : true,
+        "-KVHNwwiylZEeMTkpFS7" : true,
+        "-KVHOWi2eYGCEWEiQ-V1" : true
       },
-      "author" : "test",
-      "body" : "test",
+      "author" : "Joneph O.",
+      "body" : "Are there any good resources to get started with Node.JS? Any good tutorials, blogs or books?\n\nOf course, I have visited its official website http://nodejs.org/, but I didn't think the documentation they have is a good starting point.",
       "tags" : {
-        "-KVGutiYojfwTo8tYdwQ" : true
+        "-KVH6fFPttSQFUZNCH9j" : true,
+        "-KVH6fFjYl7a6zMF0Sa5" : true
       },
-      "timestamp" : 1477631663680,
-      "title" : "test"
+      "timestamp" : 1477772751793,
+      "title" : "How do I get started with Node.js"
     },
-    "-KVBXHASaVxZ8DlRGr9A" : {
-      "author" : "asdf",
-      "body" : "asdkjflasd klas djfkl",
-      "timestamp" : 1477679063840,
-      "title" : "test"
-    },
-    "-KVB_mnGEAVLs0RUw2Am" : {
-      "author" : "qq",
-      "body" : "qq",
+    "-KVHP9kq7DIJY7DGzPmv" : {
+      "answers" : {
+        "-KVHPMFrBzL72FyAjSPM" : true,
+        "-KVHQLtNZd39lWzn3klz" : true,
+        "-KVHT3_1G37WudcFZCQ5" : true,
+        "-KVHTZuZEAGtosd2AFCx" : true
+      },
+      "author" : "Roy Kesserwani",
+      "body" : "Hello I am a beginner in Java and had a question regarding Loops,\n\nthe question in the book asks for The sum of all odd digits of n. (For example, if n is 32677, the sum would be 3+7+7=17.\n\nI can't quite figure out how to code that, I am looking for someone to help me out. What I have is this code, well the first step, but I don't know how to complete it or whether I have it right or wrong.\n\nAny help would be appreciated,\n\npublic class sumOfOddsInNumber\n{\n    public static void main(String[] args)\n    {\n\n        int n = 0;\n        String value = String.valueOf(number);\n        int length = value.length();\n\n        while (n < length)\n        {\n            ... //Idk if this the right first step, how do I start it? where do i go?",
       "tags" : {
-        "-KVB_mpWZ5lGEfSLwWKZ" : true,
-        "-KVB_mpjElWJJhZ2q9XV" : true,
-        "-KVB_mpxh3kC4x-fari5" : true,
-        "-KVBdt_GQjIgTpBcq0gf" : true,
-        "-KVBdt_l14oM2oW-LSeI" : true,
-        "-KVBdta05y6osl9mdXKK" : true,
-        "-KVGutiYojfwTo8tYdwQ" : true
+        "-KVHP9p8lF1uhSFdrB6K" : true,
+        "-KVHP9pJWubpJJSl3nx3" : true
       },
-      "timestamp" : 1477679983890,
-      "title" : "qq"
+      "timestamp" : 1477777599591,
+      "title" : "Loops, beginner"
     },
-    "-KVBeZcVvlJZfjmMURMB" : {
-      "author" : "uh",
-      "body" : "what ",
-      "tags" : {
-        "-KVBdt_GQjIgTpBcq0gf" : true,
-        "-KVBeZeeQ4Sb0HXKH0xD" : true,
-        "-KVGutiYojfwTo8tYdwQ" : true
+    "-KVHVy4bnQO2sQ6UOCHr" : {
+      "answers" : {
+        "-KVHWaZY8ymiuj6Hz-AC" : true,
+        "-KVHWlhvE-VoOiz76Ngt" : true
       },
-      "timestamp" : 1477681236551,
-      "title" : "hhh"
+      "author" : "user4315",
+      "body" : "I always thought Java was pass-by-reference; however I've seen a couple of blog posts (for example, this blog) that claim it's not. I don't think I understand the distinction they're making.\n\nWhat is the explanation?",
+      "tags" : {
+        "-KVHP9p8lF1uhSFdrB6K" : true,
+        "-KVHVyettIt_tiocHnH1" : true,
+        "-KVHVyfgdLH9vDIi_N3r" : true,
+        "-KVHVygEPs2pRjnk_kKO" : true,
+        "-KVHVygx7zATEZjIEWxp" : true
+      },
+      "timestamp" : 1477779382696,
+      "title" : "Is Java “pass-by-reference” or “pass-by-value”?"
+    },
+    "-KVHZAF_d8BkKSqr--dF" : {
+      "answers" : {
+        "-KVHZMoeIj7eXiS3iOn_" : true,
+        "-KVHZfl5vR253UECL-fY" : true
+      },
+      "author" : "gnavi",
+      "body" : "I came across some Java code that had the following structure:\n\npublic MyParameterizedFunction(String param1, int param2)\n{\n    this(param1, param2, false);\n}\n\npublic MyParameterizedFunction(String param1, int param2, boolean param3)\n{\n    //use all three parameters here\n}\nI know that in C++ I can assign a parameter a default value. For example:\n\nvoid MyParameterizedFunction(String param1, int param2, bool param3=false);\nDoes Java support this kind of syntax? Are there any reasons why this two step syntax is preferable?",
+      "tags" : {
+        "-KVHP9p8lF1uhSFdrB6K" : true,
+        "-KVHVygx7zATEZjIEWxp" : true,
+        "-KVHZAHfE1XPS3Qk9Lz1" : true,
+        "-KVHZAHj39Kk0FL3YvJu" : true,
+        "-KVHZAHlinsaFEDNJHxr" : true
+      },
+      "timestamp" : 1477780223055,
+      "title" : "Does Java support default parameter values?"
     }
   },
   "tags" : {
-    "-KVB_mpWZ5lGEfSLwWKZ" : {
-      "name" : "i",
+    "-KVH6fFPttSQFUZNCH9j" : {
+      "name" : "javascript",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true
+        "-KVH6fCVjvykG96BX2rR" : true
       }
     },
-    "-KVB_mpjElWJJhZ2q9XV" : {
-      "name" : "love",
+    "-KVH6fFjYl7a6zMF0Sa5" : {
+      "name" : "node.js",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true
+        "-KVH6fCVjvykG96BX2rR" : true
       }
     },
-    "-KVB_mpxh3kC4x-fari5" : {
-      "name" : "epicodus",
+    "-KVHP9p8lF1uhSFdrB6K" : {
+      "name" : "java",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true
+        "-KVHP9kq7DIJY7DGzPmv" : true,
+        "-KVHVy4bnQO2sQ6UOCHr" : true,
+        "-KVHZAF_d8BkKSqr--dF" : true
       }
     },
-    "-KVBdt_GQjIgTpBcq0gf" : {
-      "name" : "test",
+    "-KVHP9pJWubpJJSl3nx3" : {
+      "name" : "loops",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true,
-        "-KVBeZcVvlJZfjmMURMB" : true
+        "-KVHP9kq7DIJY7DGzPmv" : true
       }
     },
-    "-KVBdt_l14oM2oW-LSeI" : {
-      "name" : "nb",
+    "-KVHVyettIt_tiocHnH1" : {
+      "name" : "pass-by-value",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true
+        "-KVHVy4bnQO2sQ6UOCHr" : true
       }
     },
-    "-KVBdta05y6osl9mdXKK" : {
-      "name" : "whoo",
+    "-KVHVyfgdLH9vDIi_N3r" : {
+      "name" : "pass-by-reference",
       "questions" : {
-        "-KVB_mnGEAVLs0RUw2Am" : true
+        "-KVHVy4bnQO2sQ6UOCHr" : true
       }
     },
-    "-KVBeZeeQ4Sb0HXKH0xD" : {
-      "name" : "idk",
+    "-KVHVygEPs2pRjnk_kKO" : {
+      "name" : "parameter-passing",
       "questions" : {
-        "-KVBeZcVvlJZfjmMURMB" : true
+        "-KVHVy4bnQO2sQ6UOCHr" : true
       }
     },
-    "-KVGutiYojfwTo8tYdwQ" : {
-      "name" : "a",
+    "-KVHVygx7zATEZjIEWxp" : {
+      "name" : "methods",
       "questions" : {
-        "-KV8hSsOMViCMdJgRxdp" : true,
-        "-KVB_mnGEAVLs0RUw2Am" : true,
-        "-KVBeZcVvlJZfjmMURMB" : true
+        "-KVHVy4bnQO2sQ6UOCHr" : true,
+        "-KVHZAF_d8BkKSqr--dF" : true
+      }
+    },
+    "-KVHZAHfE1XPS3Qk9Lz1" : {
+      "name" : "parameters",
+      "questions" : {
+        "-KVHZAF_d8BkKSqr--dF" : true
+      }
+    },
+    "-KVHZAHj39Kk0FL3YvJu" : {
+      "name" : "default",
+      "questions" : {
+        "-KVHZAF_d8BkKSqr--dF" : true
+      }
+    },
+    "-KVHZAHlinsaFEDNJHxr" : {
+      "name" : "default-value",
+      "questions" : {
+        "-KVHZAF_d8BkKSqr--dF" : true
       }
     }
   }

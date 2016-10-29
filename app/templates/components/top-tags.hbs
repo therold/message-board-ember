@@ -8,16 +8,18 @@
   </thead>
   <tbody>
     {{#each tags as |tag|}}
-      <tr>
-          <td class='top-tags'>
-            {{#link-to 'tag' tag.name}}
-              <span class='tag'>{{tag.name}}</span>
-            {{/link-to}}
-          </td>
-          <td>
-            {{tag.questionCount}}
-          </td>
-      </tr>
+      {{#if tag.name}}
+        <tr>
+            <td class='top-tags'>
+              {{#link-to 'tag' tag.name}}
+                <span class='tag'>{{tag.name}}</span>
+              {{/link-to}}
+            </td>
+            <td>
+              {{tag.questionCount}}
+            </td>
+        </tr>
+        {{/if}}
     {{/each}}
   </tbody>
 </table>
