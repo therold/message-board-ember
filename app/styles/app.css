@@ -35,6 +35,10 @@ a:hover {
   padding: 5px;
 }
 
+.top-tags {
+  padding-top: 10px;
+}
+
 .shortQuestion,
 .answer {
   background: lightgrey;

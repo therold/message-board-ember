@@ -1,5 +1,5 @@
 <h2>Top tags</h2>
-<table class="table table-hover">
+<table class="table">
   <thead>
     <tr>
       <th>Tag</th>
@@ -9,10 +9,14 @@
   <tbody>
     {{#each tags as |tag|}}
       <tr>
-        {{#link-to 'tag' tag.name}}
-          <td>{{tag.name}}</td>
-          {{/link-to}}
-          <td>{{tag.questionCount}}</td>
+          <td class='top-tags'>
+            {{#link-to 'tag' tag.name}}
+              <span class='tag'>{{tag.name}}</span>
+            {{/link-to}}
+          </td>
+          <td>
+            {{tag.questionCount}}
+          </td>
       </tr>
     {{/each}}
   </tbody>
