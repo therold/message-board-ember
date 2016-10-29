@@ -4,8 +4,5 @@
   <button class='btn btn-success'>Search</button>
 </form>
 {{#each tag.questions as |question|}}
-{{#link-to 'question' question.id}}
-  <h3>{{question.title}}</h3>
-  <p>By {{question.author}}</p>
-{{/link-to}}
+  {{short-question question=question}}
 {{/each}}

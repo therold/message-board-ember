@@ -1,15 +1,10 @@
 <h1>Welcome to Epic Overflow!</h1>
 
-  <div class="row">
-    <div class="col-sm-8">
-      <h3>Today's questions:</h3>
-      {{#each model.question as |question|}}
-        <div class="shortQuestion">
-          {{#link-to 'question' question.id}}
-            <h4>{{question.title}}</h4>
-            <p class="questionAuthor">By {{question.author}}</p>
-          {{/link-to}}
-        </div>
+<div class="row">
+  <div class="col-sm-8">
+    <h3>Today's questions:</h3>
+    {{#each model.question as |question|}}
+      {{short-question question=question}}
     {{/each}}
   </div>
   <div class="col-sm-4">
