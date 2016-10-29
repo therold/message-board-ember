@@ -1,0 +1,19 @@
+<h2>Top tags</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tags as |tag|}}
+      <tr>
+        {{#link-to 'tag' tag.name}}
+          <td>{{tag.name}}</td>
+          {{/link-to}}
+          <td>{{tag.questionCount}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

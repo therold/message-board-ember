@@ -1,1 +1,8 @@
-{{tag-search name=model.name questions=model.tag.questions search="search"}}
+<div class="row">
+  <div class="col-sm-8">
+    {{tag-search name=model.name search="search" tag=model.tag}}
+  </div>
+  <div class="col-sm-4">
+    {{top-tags tags=model.topTags}}
+  </div>
+</div>
