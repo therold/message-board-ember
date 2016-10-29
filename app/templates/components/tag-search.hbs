@@ -1,0 +1,10 @@
+<form {{action 'search' on='submit'}}>
+  {{input value=name id='name' class='form-control' required='required'}}
+  <button class='btn btn-success'>Search</button>
+</form>
+{{#each questions as |question|}}
+{{#link-to 'question' question.id}}
+  <h3>{{question.title}}</h3>
+  <p>By {{question.author}}</p>
+{{/link-to}}
+{{/each}}
