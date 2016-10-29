@@ -9,6 +9,9 @@ export default DS.Model.extend({
   timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
   question: DS.belongsTo('question', { async: true }),
 
+  body_htmlSafe: Ember.computed('body', function() {
+    return Ember.String.htmlSafe(this.get('body').replace(/\r?\n/g, '<br>'));
+  }),
   date: Ember.computed('timestamp', function() {
     var now = moment();
     var then = this.get('timestamp');

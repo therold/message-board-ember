@@ -1,4 +1,5 @@
 <h3>Answers: <span class="glyphicon glyphicon-plus add-link" {{action "enableAddAnswer"}}></span></h3>
+
 {{#if showAddAnswer}}
   {{add-answer question=question cancel="cancelAddAnswer" save="save"}}
 {{/if}}
@@ -15,7 +16,7 @@
             <div><span class="glyphicon glyphicon-triangle-bottom voteIcon" {{action 'downvote' answer}}></span></div>
           </div>
           <div class="table-cell answer-cell">
-            <p>{{answer.body}}</p>
+            <p>{{answer.body_htmlSafe}}</p>
             <p class="answer-by"><em>By {{answer.author}} {{answer.date}} ago</em> <span class="glyphicon glyphicon-pencil edit-link" {{action 'showUpdate' answer}}></span></p>
           </div>
         </div>

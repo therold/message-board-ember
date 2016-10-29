@@ -10,6 +10,10 @@ export default DS.Model.extend({
   answers: DS.hasMany('answer', { async: true }),
   tags: DS.hasMany('tag', { async: true }),
 
+
+  body_htmlSafe: Ember.computed('body', function() {
+    return Ember.String.htmlSafe(this.get('body').replace(/\r?\n/g, '<br>'));
+  }),
   date: Ember.computed('timestamp', function() {
     var now = moment();
     var then = this.get('timestamp');

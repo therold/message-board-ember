@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.findRecord('question', params.question_id);
+    return Ember.RSVP.hash({
+      question: this.store.findRecord('question', params.question_id),
+      // we don't use the answers directly in the template, but this is necessary to prevent lazy loading issues when using computed properties in the model. Without this answer.body will be undefined when the page loads, causing answer.body_htmlSafe to attempt to modify an undefined property. 
+      answers: this.store.findAll('answer'),
+    });
   },
 
   actions: {
