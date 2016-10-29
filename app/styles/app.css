@@ -26,6 +26,16 @@ a:hover {
   font-size: 0.75em;
 }
 
+.shortAnswer {
+  width: 100vw;
+}
+
+.tag {
+  background: lightgrey;
+  padding: 5px;
+}
+
+.shortQuestion,
 .answer {
   background: lightgrey;
   border: 1px solid black;
@@ -55,4 +65,9 @@ a:hover {
 
 .voteIcon {
   cursor: pointer;
+}
+
+.questionAuthor {
+  padding-left: 10px;
+  font-style: italic;
 }

@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model(params) {
     return Ember.RSVP.hash({
       question: this.store.findRecord('question', params.question_id),
-      // we don't use the answers directly in the template, but this is necessary to prevent lazy loading issues when using computed properties in the model. Without this answer.body will be undefined when the page loads, causing answer.body_htmlSafe to attempt to modify an undefined property. 
+      // we don't use the answers directly in the template, but this is necessary to prevent lazy loading issues when using computed properties in the model. Without this answer.body will be undefined when the page loads, causing answer.body_htmlSafe to attempt to modify an undefined property.
       answers: this.store.findAll('answer'),
     });
   },
@@ -85,7 +85,7 @@ export default Ember.Route.extend({
       answer.save().then(() => {
         return question.save();
       });
-      this.transitionTo('question', question);
+      this.transitionTo('question');
     },
     updateAnswer(answer, params) {
       Object.keys(params).forEach(function(key) {

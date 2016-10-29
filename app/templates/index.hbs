@@ -1,7 +1,11 @@
-<h1>Home</h1>
+<h1>Welcome to Epic Overflow!</h1>
+
+<h3>Today's questions:</h3>
 {{#each model as |question|}}
-  {{#link-to 'question' question.id}}
-    <h3>{{question.title}}</h3>
-    <p>By {{question.author}}</p>
-  {{/link-to}}
+  <div class="shortQuestion">
+    {{#link-to 'question' question.id}}
+      <h4>{{question.title}}</h4>
+      <p class="questionAuthor">By {{question.author}}</p>
+    {{/link-to}}
+  </div>
 {{/each}}
