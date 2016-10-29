@@ -10,7 +10,7 @@ export default DS.Model.extend({
   question: DS.belongsTo('question', { async: true }),
 
   body_htmlSafe: Ember.computed('body', function() {
-    return Ember.String.htmlSafe(this.get('body').replace(/\r?\n/g, '<br>'));
+    return Ember.String.htmlSafe(this.get('body').replace(/\r?\n/g, '<br>').replace(/  /g, '&nbsp;&nbsp;'));
   }),
   date: Ember.computed('timestamp', function() {
     var now = moment();
