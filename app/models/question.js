@@ -7,8 +7,8 @@ export default DS.Model.extend({
   body: DS.attr('string'),
   author: DS.attr('string'),
   timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
-  answers: DS.hasMany('answer', { async: true }),
-  tags: DS.hasMany('tag', { async: true }),
+  // answers: DS.hasMany('answer', { async: true }),
+  // tags: DS.hasMany('tag', { async: true }),
 
 
   body_htmlSafe: Ember.computed('body', function() {
