@@ -51,6 +51,11 @@ export default Ember.Service.extend({
     });
   },
 
+  init() {
+    var params = { id: 0, name: 'autoLogin' }
+    this.set('currentUser', params);
+  },
+
   logout() {
     this.set('currentUser', null);
   }
