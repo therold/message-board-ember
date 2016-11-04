@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('tag', {path: '/tag/:tag_name'});
 
   this.route('new-user');
+  this.route('login');
 });
 
 export default Router;
