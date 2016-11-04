@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   sortBy: ['score:desc'],
-  sortedAnswers: Ember.computed.sort('question.answers', 'sortBy'),
+  sortedAnswers: Ember.computed.sort('answers', 'sortBy'),
   showAddAnswer: false,
   answerToUpdate: null,
   actions: {
