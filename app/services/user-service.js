@@ -16,9 +16,11 @@ export default Ember.Service.extend({
           } else {
             path.push(params).then(user => {
               var id = user.getKey();
-              path.child(id).update({id: id}).then(user => {
-                service.set('currentUser', user);
-                resolve();
+              path.child(id).update({id: id}).then(() => {
+                user.once('value').then(user => {
+                  service.set('currentUser', user.val());
+                  resolve();
+                });
               });
             });
           }
