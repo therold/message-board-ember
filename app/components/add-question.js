@@ -8,14 +8,13 @@ export default Ember.Component.extend({
     save() {
       var params = {
         title: this.get('title'),
-        author: this.get('author'),
-        body: this.get('body')
+        body: this.get('body'),
+        tags: this.get('tags'),
       };
-      var tags = this.get('tags');
-      this.sendAction('save', params, tags);
+      this.sendAction('save', params);
       this.set('title', '');
-      this.set('author', '');
       this.set('body', '');
+      this.set('tags', '');
     }
   }
 });

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Service.extend({
   firebase: Ember.inject.service(),
@@ -21,7 +22,6 @@ export default Ember.Service.extend({
     }
   },
 
-
   all() {
     var service = this;
     var store = service.get('store');
@@ -35,5 +35,41 @@ export default Ember.Service.extend({
       });
       return output;
     });
+  },
+
+  add(user_id, title, body, tags) {
+    var service = this;
+    var store = this.get('store');
+    var firebase = this.get('firebase');
+    var path = firebase.child('questions');
+    var params = { user: user_id, title: title, body: body, timestamp: moment().valueOf() };
+
+    path.push(params).then(question => {
+      var question_id = question.getKey();
+      path.child(question_id).update({id: question_id});
+
+      var enteredTags = tags.split(' ');
+      enteredTags.forEach(function(tag, i) {
+        if(!enteredTags.slice(0, i).includes(tag)) {
+          store.query('tag', { orderBy: 'name', equalTo: tag}).then(queryResult => {
+            var savedTag = queryResult.objectAt(0);
+            if(!savedTag) {
+              // No record found with the same name. New tag has been entered. Create new tag record and save both sides of the relationship.
+              var tag_params = { name: tag, questions: { [question_id]: true }};
+              firebase.child('tags').push(tag_params).then(tag => {
+                var tag_id = tag.getKey();
+                path.child(`${question_id}/tags`).update({ [tag_id]: true });
+              });
+            } else {
+              // Record found with same name. Existing tag has been entered. Use existing tag and sae both sides of the relationship.
+              var tag_id = savedTag.get('id');
+              firebase.child(`tags/${tag_id}/questions`).update({ [question_id]: true });
+              firebase.child(`questions/${question_id}/tags`).update({ [tag_id]: true });
+            }
+          });
+        }
+      });
+    });
   }
+
 });
