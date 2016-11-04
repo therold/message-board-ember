@@ -9,6 +9,7 @@ export default Ember.Service.extend({
     var store = service.get('store');
     var firebase = service.get('firebase');
     var output = [];
+    store.unloadAll();
     return firebase.child('questions').once('value').then(data => {
       data.forEach(question => {
         var questionRecord = store.createRecord('question', question.val());

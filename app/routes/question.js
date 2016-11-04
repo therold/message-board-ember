@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  tagService: Ember.inject.service(),
+
   model(params) {
     return Ember.RSVP.hash({
+      tags: this.get('tagService').findByQuestionId(params.question_id),
       question: this.store.findRecord('question', params.question_id),
       // we don't use the answers directly in the template, but this is necessary to prevent lazy loading issues when using computed properties in the model. Without this answer.body will be undefined when the page loads, causing answer.body_htmlSafe to attempt to modify an undefined property.
       answers: this.store.findAll('answer'),

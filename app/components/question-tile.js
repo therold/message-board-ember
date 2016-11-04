@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   showEdit: false,
+  tagService: Ember.inject.service(),
 
   actions: {
     enableUpdate() {
