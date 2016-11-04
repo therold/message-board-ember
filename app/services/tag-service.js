@@ -12,6 +12,7 @@ export default Ember.Service.extend({
     var output = [];
     var tag_promises = [];
 
+    store.unloadAll();
     return firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
       data.forEach(tag => {
         var tag_id = tag.key;

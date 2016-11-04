@@ -6,41 +6,19 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
 
   find(question_id) {
-    var service = this;
-    var store = service.get('store');
-    var firebase = service.get('firebase');
-    var output = [];
-    var answer_promises = [];
-
-    var loadedQuestion = store.find('question', question_id);
-    if(loadedQuestion) {
-      return loadedQuestion;
-    } else {
-      return firebase.child(`questions/${question_id}`).once('value').then(question => {
-        return store.createRecord('question', question.val());
-      });
-    }
+    var store = this.get('store');
+    return store.find('question', question_id);
   },
 
   all() {
-    var service = this;
-    var store = service.get('store');
-    var firebase = service.get('firebase');
-    var output = [];
-    store.unloadAll();
-    return firebase.child('questions').once('value').then(data => {
-      data.forEach(question => {
-        var questionRecord = store.createRecord('question', question.val());
-        output.push(questionRecord);
-      });
-      return output;
-    });
+    var store = this.get('store');
+    return store.findAll('question');
   },
 
   add(user_id, title, body, tags) {
     var service = this;
-    var store = this.get('store');
-    var firebase = this.get('firebase');
+    var store = service.get('store');
+    var firebase = service.get('firebase');
     var path = firebase.child('questions');
     var params = { user: user_id, title: title, body: body, timestamp: moment().valueOf() };
 
@@ -58,6 +36,7 @@ export default Ember.Service.extend({
               var tag_params = { name: tag, questions: { [question_id]: true }};
               firebase.child('tags').push(tag_params).then(tag => {
                 var tag_id = tag.getKey();
+                tag.update({ id: tag_id });
                 path.child(`${question_id}/tags`).update({ [tag_id]: true });
               });
             } else {
@@ -70,6 +49,51 @@ export default Ember.Service.extend({
         }
       });
     });
+  },
+
+  update(question_id, title, body, newTags, removeTags) {
+    var service = this;
+    var store = this.get('store');
+    var firebase = this.get('firebase');
+    var path = firebase.child('questions');
+    var promises = [];
+
+    promises.push(removeTags.forEach(tag_id => {
+      firebase.child(`tags/${tag_id}/questions/${question_id}`).remove();
+      firebase.child(`tags/${tag_id}`).once('value').then(data => {
+        if(!data.child('questions').exists()) {
+          firebase.child(`tags/${tag_id}`).remove();
+        }
+      });
+      firebase.child(`questions/${question_id}/tags/${tag_id}`).remove();
+    }));
+    if(newTags) {
+      var enteredTags = newTags.split(' ');
+      enteredTags.forEach(function(tag, i) {
+        if(!enteredTags.slice(0, i).includes(tag)) {
+          store.query('tag', { orderBy: 'name', equalTo: tag}).then(queryResult => {
+            var savedTag = queryResult.objectAt(0);
+            if(!savedTag) {
+              // No record found with the same name. New tag has been entered. Create new tag record and save both sides of the relationship.
+              var tag_params = { name: tag, questions: { [question_id]: true }};
+              promises.push(firebase.child('tags').push(tag_params).then(tag => {
+                var tag_id = tag.getKey();
+                tag.update({ id: tag_id });
+                path.child(`${question_id}/tags`).update({ [tag_id]: true });
+              }));
+            } else {
+              // Record found with same name. Existing tag has been entered. Use existing tag and sae both sides of the relationship.
+              var tag_id = savedTag.get('id');
+              promises.push(firebase.child(`tags/${tag_id}/questions`).update({ [question_id]: true }));
+              promises.push(firebase.child(`questions/${question_id}/tags`).update({ [tag_id]: true }));
+            }
+          });
+        }
+      });
+    };
+    var params = { title: title, body: body };
+    promises.push(firebase.child(`questions/${question_id}`).update(params));
+    return Ember.RSVP.all(promises);
   },
 
   remove(question_id) {
