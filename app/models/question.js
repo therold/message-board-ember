@@ -5,8 +5,8 @@ import moment from 'moment';
 export default DS.Model.extend({
   title: DS.attr('string'),
   body: DS.attr('string'),
-  author: DS.attr('string'),
-  timestamp: DS.attr('number', { defaultValue() { return moment(); }}),
+  user: DS.attr('string'),
+  timestamp: DS.attr('number'),
 
   body_htmlSafe: Ember.computed('body', function() {
     return Ember.String.htmlSafe(this.get('body').replace(/\r?\n/g, '<br>').replace(/  /g, '&nbsp;&nbsp;'));
