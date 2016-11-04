@@ -36,10 +36,10 @@ export default Ember.Service.extend({
     var store = service.get('store');
     var firebase = service.get('firebase');
     var output = [];
-    return firebase.child('questions').once('value').then(data => {
-      data.forEach(question => {
-        var questionRecord = store.createRecord('question', question.val());
-        output.push(questionRecord);
+    return firebase.child('tags').once('value').then(data => {
+      data.forEach(tag => {
+        var tagRecord = store.createRecord('tag', tag.val());
+        output.push(tagRecord);
       });
       return output;
     });
