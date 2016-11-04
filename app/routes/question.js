@@ -63,24 +63,8 @@ export default Ember.Route.extend({
       question.save();
     },
     deleteQuestion(question) {
-      // Remove the relationship to any tags before deleting the question
-      question.get('tags').then(tags => {
-        tags.forEach(tag => {
-          tag.get('questions').removeObject(tag);
-          tag.save().then(tag => {
-            if(tag.get('questions').get('length') === 0) {
-              // Tag is now an orphan. Tag has no associated questions.
-              tag.destroyRecord();
-            }
-          });
-        });
-      });
-      var answer_deletions = question.get('answers').map(answer => {
-        return answer.destroyRecord();
-      });
-      Ember.RSVP.all(answer_deletions).then(() => {
-        return question.destroyRecord();
-      }).then(() => this.transitionTo('index'));
+      this.get('questionService').remove(question.id);
+      this.transitionTo('index');
     },
     saveAnswer(params) {
       var answer = this.store.createRecord('answer', params);
