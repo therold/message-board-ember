@@ -76,7 +76,7 @@ export default Ember.Service.extend({
     var firebase = this.get('firebase');
 
     // Remove question from all associated tags. Also remove any tag that no longer has at least one associated question.
-    firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
+    return firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
       data.forEach(tag => {
         var tag_id = tag.getKey();
         firebase.child(`tags/${tag_id}/questions/${question_id}`).remove();
@@ -87,7 +87,7 @@ export default Ember.Service.extend({
         });
       });
       // Remove the question itself
-      firebase.child(`questions/${question_id}`).remove();
+      return firebase.child(`questions/${question_id}`).remove();
     });
   }
 

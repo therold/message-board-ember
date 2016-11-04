@@ -63,8 +63,9 @@ export default Ember.Route.extend({
       question.save();
     },
     deleteQuestion(question) {
-      this.get('questionService').remove(question.id);
-      this.transitionTo('index');
+      this.get('questionService').remove(question.id).then(() => {
+        this.transitionTo('index');
+      });
     },
     saveAnswer(params) {
       var answer = this.store.createRecord('answer', params);
