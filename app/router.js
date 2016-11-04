@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('question', {path: '/question/:question_id'});
   this.route('tag', {path: '/tag/:tag_name'});
 
+  this.route('new-user');
 });
 
 export default Router;
