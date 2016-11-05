@@ -5,25 +5,25 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
   questionService: Ember.inject.service(),
 
+  all() {
+    var store = this.get('store');
+    return store.findAll('tag');
+  },
+
   findByQuestionId(question_id) {
     var store = this.get('store');
     var questionService = this.get('questionService');
-    var output = [];
     var promises = [];
+    var tags = [];
 
     return questionService.getTagIds(question_id).then(tag_ids => {
       tag_ids.forEach(tag_id => {
         promises.push(
-          store.find('tag', tag_id).then(tag => { output.push(tag); })
+          store.find('tag', tag_id).then(tag => { tags.push(tag); })
         );
       });
-      return Ember.RSVP.all(promises).then(() => { return output; });
+      return Ember.RSVP.all(promises).then(() => { return tags; });
     });
-  },
-
-  all() {
-    var store = this.get('store');
-    return store.findAll('tag');
   },
 
 
