@@ -52,7 +52,6 @@ export default Ember.Service.extend({
   },
 
   update(question_id, title, body, newTags, removeTags) {
-    var service = this;
     var store = this.get('store');
     var firebase = this.get('firebase');
     var path = firebase.child('questions');
@@ -74,7 +73,7 @@ export default Ember.Service.extend({
           store.query('tag', { orderBy: 'name', equalTo: tag}).then(queryResult => {
             var savedTag = queryResult.objectAt(0);
             if(!savedTag) {
-              // No record found with the same name. New tag has been entered. Create new tag record and save both sides of the relationship.
+              // No record found with the same name.
               var tag_params = { name: tag, questions: { [question_id]: true }};
               promises.push(firebase.child('tags').push(tag_params).then(tag => {
                 var tag_id = tag.getKey();
@@ -82,7 +81,7 @@ export default Ember.Service.extend({
                 path.child(`${question_id}/tags`).update({ [tag_id]: true });
               }));
             } else {
-              // Record found with same name. Existing tag has been entered. Use existing tag and sae both sides of the relationship.
+              // Record found with same name.
               var tag_id = savedTag.get('id');
               promises.push(firebase.child(`tags/${tag_id}/questions`).update({ [question_id]: true }));
               promises.push(firebase.child(`questions/${question_id}/tags`).update({ [tag_id]: true }));
@@ -90,7 +89,7 @@ export default Ember.Service.extend({
           });
         }
       });
-    };
+    }
     var params = { title: title, body: body };
     promises.push(firebase.child(`questions/${question_id}`).update(params));
     return Ember.RSVP.all(promises);
@@ -98,8 +97,6 @@ export default Ember.Service.extend({
 
   remove(question_id) {
     var firebase = this.get('firebase');
-
-    // Remove question from all associated tags. Also remove any tag that no longer has at least one associated question.
     return firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
       data.forEach(tag => {
         var tag_id = tag.getKey();
@@ -110,8 +107,19 @@ export default Ember.Service.extend({
           }
         });
       });
-      // Remove the question itself
       return firebase.child(`questions/${question_id}`).remove();
+    });
+  },
+
+  getTagIds(question_id) {
+    var firebase = this.get('firebase');
+    var tag_ids = [];
+    return firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
+      data.forEach(tag => {
+        var tag_id = tag.key;
+        tag_ids.push(tag_id);
+      });
+      return tag_ids;
     });
   }
 
