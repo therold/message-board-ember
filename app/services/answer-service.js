@@ -2,32 +2,22 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   firebase: Ember.inject.service(),
+  questionService: Ember.inject.service(),
   store: Ember.inject.service(),
 
   findByQuestionId(question_id) {
-    var service = this;
-    var store = service.get('store');
-    var firebase = service.get('firebase');
-    var answer_ids = [];
+    var store = this.get('store');
+    var questionService = this.get('questionService');
     var output = [];
-    var answer_promises = [];
+    var promises = [];
 
-    return firebase.child(`questions/${question_id}/answers`).once('value').then(data => {
-      data.forEach(answer => {
-        var answer_id = answer.key;
-        answer_ids.push(answer_id);
-      });
-      return answer_ids;
-    }).then(answer_ids => {
+    return questionService.getAnswerIds(question_id).then(answer_ids => {
       answer_ids.forEach(answer_id => {
-        answer_promises.push(firebase.child(`answers/${answer_id}`).once('value').then(data => {
-          var answerRecord = store.createRecord('answer', data.val());
-          output.push(answerRecord);
-        }));
+        promises.push(
+          store.find('answer', answer_id).then(answer => { output.push(answer); })
+        );
       });
-      return Ember.RSVP.all(answer_promises).then(() => {
-        return output;
-      });
+      return Ember.RSVP.all(promises).then(() => { return output; });
     });
   },
 
