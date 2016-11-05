@@ -5,20 +5,19 @@ export default Ember.Service.extend({
   firebase: Ember.inject.service(),
   store: Ember.inject.service(),
 
-  find(question_id) {
-    var store = this.get('store');
-    return store.find('question', question_id);
-  },
-
   all() {
     var store = this.get('store');
     return store.findAll('question');
   },
 
+  find(question_id) {
+    var store = this.get('store');
+    return store.find('question', question_id);
+  },
+
   add(user_id, title, body, tags) {
-    var service = this;
-    var store = service.get('store');
-    var firebase = service.get('firebase');
+    var store = this.get('store');
+    var firebase = this.get('firebase');
     var path = firebase.child('questions');
     var params = { user: user_id, title: title, body: body, timestamp: moment().valueOf() };
 
@@ -96,19 +95,21 @@ export default Ember.Service.extend({
   },
 
   remove(question_id) {
+    var promises = [];
     var firebase = this.get('firebase');
-    return firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
+    firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
       data.forEach(tag => {
         var tag_id = tag.getKey();
-        firebase.child(`tags/${tag_id}/questions/${question_id}`).remove();
+        promises.push(firebase.child(`tags/${tag_id}/questions/${question_id}`).remove());
         firebase.child(`tags/${tag_id}`).once('value').then(data => {
           if(!data.child('questions').exists()) {
-            firebase.child(`tags/${tag_id}`).remove();
+            promises.push(firebase.child(`tags/${tag_id}`).remove());
           }
         });
       });
-      return firebase.child(`questions/${question_id}`).remove();
+      promises.push(firebase.child(`questions/${question_id}`).remove());
     });
+    return Ember.RSVP.all(promises);
   },
 
   getTagIds(question_id) {
