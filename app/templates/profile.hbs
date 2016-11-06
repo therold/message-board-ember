@@ -1,0 +1,4 @@
+<h3>{{model.user.name}}'s Questions:</h3>
+{{#each model.questions as |question|}}
+  {{short-question question=question}}
+{{/each}}
