@@ -69,6 +69,15 @@ export default Ember.Service.extend({
     });
   },
 
+  getQuestionIds(user_id) {
+    var firebase = this.get('firebase');
+    var question_ids = [];
+    return firebase.child(`users/${user_id}/questions`).once('value').then(data => {
+      data.forEach(question => { question_ids.push(question.key); });
+      return question_ids;
+    });
+  },
+
   // init() {
   //   var params = { id: "-KVhX7UC6W2mQ1VF1tfx", name: 'autoLogin' };
   //   this.set('currentUser', params);

@@ -18,6 +18,23 @@ export default Ember.Service.extend({
     return store.find('question', question_id);
   },
 
+  findByUserId(user_id) {
+    var store = this.get('store');
+    var userService = this.get('userService');
+    var promises = [];
+    var questions = [];
+
+    store.unloadAll('question');
+    return userService.getQuestionIds(user_id).then(question_ids => {
+      question_ids.forEach(question_id => {
+        promises.push(
+          store.find('question', question_id).then(question => { questions.push(question); })
+        );
+      });
+      return Ember.RSVP.all(promises).then(() => { return questions; });
+    });
+  },
+
   add(user_id, title, body, tags) {
     var firebase = this.get('firebase');
     var tagService = this.get('tagService');
