@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export function shortAnswer(params) {
-  var body = params[0].get('body');
-  if(body.length < 20) {
-    return body;
+  var answer = params[0];
+  const BODYLENGTH = 80;
+  if(answer.get('body').length < BODYLENGTH) {
+    return answer.get('body_htmlSafe');
   } else {
-    return body.substr(0, 20) + '...';
+    return Ember.String.htmlSafe(answer.get('body').substr(0, BODYLENGTH).replace(/\r?\n/g, '<br>').replace(/  /g, '&nbsp;&nbsp;') + '...' );
   }
 }
 
