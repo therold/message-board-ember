@@ -8,19 +8,7 @@
     {{#if (eq answerToUpdate answer.id)}}
       {{update-answer answer=answer question=question cancel="cancelUpdate" update="update" delete="delete"}}
     {{else}}
-      <div class="answer">
-        <div class="table-row">
-          <div class="text-center table-cell score-cell">
-            <div><span class="glyphicon glyphicon-triangle-top voteIcon" {{action 'upvote' answer}}></span></div>
-            <div>{{answer.score}}</div>
-            <div><span class="glyphicon glyphicon-triangle-bottom voteIcon" {{action 'downvote' answer}}></span></div>
-          </div>
-          <div class="table-cell answer-cell">
-            <p>{{answer.body_htmlSafe}}</p>
-            <p class="answer-by"><em>By {{answer.author}} {{answer.date}} ago</em> <span class="glyphicon glyphicon-pencil edit-link" {{action 'showUpdate' answer}}></span></p>
-          </div>
-        </div>
-      </div>
+      {{display-answer answer=answer}}
       {{/if}}
   {{/each}}
 </div>

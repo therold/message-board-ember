@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   sortedAnswers: Ember.computed.sort('answers', 'sortBy'),
   showAddAnswer: false,
   answerToUpdate: null,
+  
   actions: {
     showUpdate(answer) {
       this.set('showAddAnswer', false);
