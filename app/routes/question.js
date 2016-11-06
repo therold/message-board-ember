@@ -35,7 +35,9 @@ export default Ember.Route.extend({
       answer.save();
     },
     deleteAnswer(answer) {
-      answer.destroyRecord();
+      this.get('answerService').remove(answer.get("id")).then(() => {
+        this.transitionTo('index');
+      });
     },
     upvoteAnswer(answer) {
       answer.set('score', answer.get('score') + 1);

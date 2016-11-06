@@ -31,7 +31,7 @@ export default Ember.Service.extend({
 
   add(user_id, question_id, body) {
     var firebase = this.get('firebase');
-    var params = { user: user_id, questions: question_id, body: body, score: 1, timestamp: moment().valueOf() };
+    var params = { user: user_id, question: question_id, body: body, score: 1, timestamp: moment().valueOf() };
 
     return firebase.child('answers').push(params).then(answer => {
       var answer_id = answer.getKey();
@@ -44,13 +44,15 @@ export default Ember.Service.extend({
 
   remove(answer_id) {
     var firebase = this.get('firebase');
-    return firebase.child(`answers/${answer_id}/questions/${question_id}`).remove().then(() => {
-      return firebase.child(`tags/${tag_id}`).once('value').then(data => {
-        if(!data.child('questions').exists()) {
-          return firebase.child(`tags/${tag_id}`).remove();
-        }
-      });
-    });
+    var promises = [];
+    promises.push(firebase.child(`answers/${answer_id}/question`).once('value').then(question => {
+      return firebase.child(`questions/${question.val()}/answers/${answer_id}`).remove();
+    }));
+    promises.push(firebase.child(`answers/${answer_id}/user`).once('value').then(user => {
+      return firebase.child(`users/${user.val()}/answers/${answer_id}`).remove();
+    }));
+    promises.push(firebase.child(`answers/${answer_id}`).remove());
+    return Ember.RSVP.all(promises);
   },
 
 
