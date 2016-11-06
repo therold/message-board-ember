@@ -2,3 +2,8 @@
 {{#each model.questions as |question|}}
   {{short-question question=question}}
 {{/each}}
+
+<h3>{{model.user.name}}'s Answers:</h3>
+{{#each model.answers as |answer|}}
+  {{short-answer answer=answer}}
+{{/each}}

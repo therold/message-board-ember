@@ -3,7 +3,7 @@
 {{else}}
   <h3 class="question-title">{{question.title}} <span class="glyphicon glyphicon-pencil edit-link" {{action 'enableUpdate'}}></span></h3>
   <p>{{question.body_htmlSafe}}</p>
-  <p><em>Posted by {{#link-to 'profile' user}}{{user.name}}{{/link-to}} {{question.date}}</em></p>
+  <p><em>Posted by {{#link-to 'profile' user.id}}{{user.name}}{{/link-to}} {{question.date}}</em></p>
   <p>Tags:
     {{#each tags as |tag|}}
         {{#link-to 'tag' tag.name class='tag'}}{{tag.name}}{{/link-to}}

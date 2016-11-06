@@ -5,6 +5,7 @@ export default Ember.Service.extend({
   firebase: Ember.inject.service(),
   store: Ember.inject.service(),
   questionService: Ember.inject.service(),
+  userService: Ember.inject.service(),
 
   all() {
     var store = this.get('store');
@@ -18,7 +19,6 @@ export default Ember.Service.extend({
     var promises = [];
     var answers = [];
 
-    store.unloadAll('answer');
     return questionService.getAnswerIds(question_id).then(answer_ids => {
       answer_ids.forEach(answer_id => {
         promises.push(
@@ -28,6 +28,24 @@ export default Ember.Service.extend({
       return Ember.RSVP.all(promises).then(() => { return answers; });
     });
   },
+
+  findByUserId(user_id) {
+    var store = this.get('store');
+    var userService = this.get('userService');
+    var promises = [];
+    var answers = [];
+
+    store.unloadAll('answer');
+    return userService.getAnswerIds(user_id).then(answer_ids => {
+      answer_ids.forEach(answer_id => {
+        promises.push(
+          store.find('answer', answer_id).then(answer => { answers.push(answer); })
+        );
+      });
+      return Ember.RSVP.all(promises).then(() => { return answers; });
+    });
+  },
+
 
   add(user_id, question_id, body) {
     var firebase = this.get('firebase');

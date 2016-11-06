@@ -74,7 +74,17 @@ export default Ember.Service.extend({
     var question_ids = [];
     return firebase.child(`users/${user_id}/questions`).once('value').then(data => {
       data.forEach(question => { question_ids.push(question.key); });
+
       return question_ids;
+    });
+  },
+
+  getAnswerIds(user_id) {
+    var firebase = this.get('firebase');
+    var answer_ids = [];
+    return firebase.child(`users/${user_id}/answers`).once('value').then(data => {
+      data.forEach(answer => { answer_ids.push(answer.key); });
+      return answer_ids;
     });
   },
 

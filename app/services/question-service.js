@@ -23,8 +23,7 @@ export default Ember.Service.extend({
     var userService = this.get('userService');
     var promises = [];
     var questions = [];
-
-    store.unloadAll('question');
+    
     return userService.getQuestionIds(user_id).then(question_ids => {
       question_ids.forEach(question_id => {
         promises.push(
