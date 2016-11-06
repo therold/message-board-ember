@@ -29,10 +29,7 @@ export default Ember.Route.extend({
       });
     },
     updateAnswer(answer, params) {
-      Object.keys(params).forEach(function(key) {
-        answer.set(key, params[key]);
-      });
-      answer.save();
+      this.get('answerService').update(answer.get('id'), params.body);
     },
     deleteAnswer(answer) {
       this.get('answerService').remove(answer.get("id")).then(() => {

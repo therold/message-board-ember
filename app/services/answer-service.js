@@ -42,6 +42,13 @@ export default Ember.Service.extend({
     });
   },
 
+  update(answer_id, body) {
+    var firebase = this.get('firebase');
+
+    var params = { body: body };
+    return firebase.child(`answers/${answer_id}`).update(params);
+  },
+
   remove(answer_id) {
     var firebase = this.get('firebase');
     var promises = [];
