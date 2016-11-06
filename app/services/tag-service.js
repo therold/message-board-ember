@@ -10,6 +10,17 @@ export default Ember.Service.extend({
     return store.findAll('tag');
   },
 
+  removeFromQuestion(tag_id, question_id) {
+    var firebase = this.get('firebase');
+    return firebase.child(`tags/${tag_id}/questions/${question_id}`).remove().then(() => {
+      return firebase.child(`tags/${tag_id}`).once('value').then(data => {
+        if(!data.child('questions').exists()) {
+          return firebase.child(`tags/${tag_id}`).remove();
+        }
+      });
+    });
+  },
+
   findByQuestionId(question_id) {
     var store = this.get('store');
     var questionService = this.get('questionService');

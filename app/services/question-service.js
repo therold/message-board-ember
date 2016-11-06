@@ -4,6 +4,7 @@ import moment from 'moment';
 export default Ember.Service.extend({
   firebase: Ember.inject.service(),
   store: Ember.inject.service(),
+  tagService: Ember.inject.service(),
 
   all() {
     var store = this.get('store');
@@ -97,15 +98,10 @@ export default Ember.Service.extend({
   remove(question_id) {
     var promises = [];
     var firebase = this.get('firebase');
+    var tagService = this.get('tagService');
     firebase.child(`questions/${question_id}/tags`).once('value').then(data => {
       data.forEach(tag => {
-        var tag_id = tag.getKey();
-        promises.push(firebase.child(`tags/${tag_id}/questions/${question_id}`).remove());
-        firebase.child(`tags/${tag_id}`).once('value').then(data => {
-          if(!data.child('questions').exists()) {
-            promises.push(firebase.child(`tags/${tag_id}`).remove());
-          }
-        });
+        promises.push(tagService.removeFromQuestion(tag.key, question_id));
       });
       promises.push(firebase.child(`questions/${question_id}`).remove());
     });
