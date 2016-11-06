@@ -22,13 +22,11 @@ export default Ember.Route.extend({
       });
     },
     saveAnswer(params) {
-      var answer = this.store.createRecord('answer', params);
-      var question = params.question;
-      question.get('answers').addObject(answer);
-      answer.save().then(() => {
-        return question.save();
+      var question_id = params.question.get('id');
+      var user_id = this.get('userService').currentUser.id;
+      this.get('answerService').add(user_id, question_id, params.body).then(() => {
+        this.transitionTo('index');
       });
-      this.transitionTo('question');
     },
     updateAnswer(answer, params) {
       Object.keys(params).forEach(function(key) {

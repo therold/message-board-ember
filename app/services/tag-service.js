@@ -7,6 +7,7 @@ export default Ember.Service.extend({
 
   all() {
     var store = this.get('store');
+    store.unloadAll('tag');
     return store.findAll('tag');
   },
 
@@ -27,6 +28,7 @@ export default Ember.Service.extend({
     var promises = [];
     var tags = [];
 
+    store.unloadAll('tag');
     return questionService.getTagIds(question_id).then(tag_ids => {
       tag_ids.forEach(tag_id => {
         promises.push(
