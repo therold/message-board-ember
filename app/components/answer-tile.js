@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  userService: Ember.inject.service(),
   sortBy: ['score:desc'],
   sortedAnswers: Ember.computed.sort('answers', 'sortBy'),
   showAddAnswer: false,
   answerToUpdate: null,
-  
+
   actions: {
     showUpdate(answer) {
       this.set('showAddAnswer', false);

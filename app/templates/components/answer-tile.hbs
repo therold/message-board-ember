@@ -1,4 +1,8 @@
-<h3>Answers: <span class="glyphicon glyphicon-plus add-link" {{action "enableAddAnswer"}}></span></h3>
+<h3>Answers:
+  {{#if userService.currentUser}}
+    <span class="glyphicon glyphicon-plus add-link" {{action "enableAddAnswer"}}></span>
+  {{/if}}
+</h3>
 
 {{#if showAddAnswer}}
   {{add-answer question=question cancel="cancelAddAnswer" save="save"}}
