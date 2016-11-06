@@ -10,4 +10,15 @@ export default Ember.Component.extend({
       this.set('user', user);
     }
   },
+  actions: {
+    showUpdate(answer) {
+      this.sendAction('showUpdate', answer);
+    },
+    upvote(answer) {
+      this.sendAction('upvote', answer);
+    },
+    downvote(answer) {
+      this.sendAction('downvote', answer);
+    }
+  }
 });
