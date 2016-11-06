@@ -4,11 +4,13 @@ export default Ember.Route.extend({
   tagService: Ember.inject.service(),
   questionService: Ember.inject.service(),
   answerService: Ember.inject.service(),
+  userService: Ember.inject.service(),
 
   model(params) {
     return Ember.RSVP.hash({
       tags: this.get('tagService').findByQuestionId(params.question_id),
       question: this.get('questionService').find(params.question_id),
+      user: this.get('userService').findByQuestionId(params.question_id),
       answers: this.get('answerService').findByQuestionId(params.question_id),
     });
   },

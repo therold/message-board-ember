@@ -124,6 +124,13 @@ export default Ember.Service.extend({
       data.forEach(answer => { answer_ids.push(answer.key); });
       return answer_ids;
     });
+  },
+
+  getUserId(question_id) {
+    var firebase = this.get('firebase');
+    return firebase.child(`questions/${question_id}/user`).once('value').then(user_id => {
+      return user_id.val();
+    });
   }
 
 });

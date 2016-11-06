@@ -2,7 +2,25 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   firebase: Ember.inject.service(),
+  store: Ember.inject.service(),
+  questionService: Ember.inject.service(),
   currentUser: null,
+
+  find(user_id) {
+    var store = this.get('store');
+    return store.find('user', user_id);
+  },
+
+  findByQuestionId(question_id) {
+    var store = this.get('store');
+    var questionService = this.get('questionService');
+
+    return questionService.getUserId(question_id).then(user_id => {
+      return store.find('user', user_id);
+    });
+  },
+
+
 
   add(name, password) {
     var service = this;
@@ -35,7 +53,7 @@ export default Ember.Service.extend({
     var path = firebase.child('users');
     return new Ember.RSVP.Promise(function(resolve, reject) {
       path.orderByChild('name').equalTo(name).limitToFirst(1).once('value').then(data => {
-        var user = data.val()
+        var user = data.val();
         if(!user) {
           reject(Error('UserInvalidError'));
         } else {
@@ -51,10 +69,10 @@ export default Ember.Service.extend({
     });
   },
 
-  init() {
-    var params = { id: 0, name: 'autoLogin' }
-    this.set('currentUser', params);
-  },
+  // init() {
+  //   var params = { id: "-KVhX7UC6W2mQ1VF1tfx", name: 'autoLogin' };
+  //   this.set('currentUser', params);
+  // },
 
   logout() {
     this.set('currentUser', null);
