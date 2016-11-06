@@ -7,7 +7,7 @@
     </div>
     <div class="table-cell answer-cell">
       <p>{{answer.body_htmlSafe}}</p>
-      <p class="answer-by"><em>By {{user.name}} {{answer.date}} ago</em> <span class="glyphicon glyphicon-pencil edit-link" {{action 'showUpdate' answer}}></span></p>
+      <p class="answer-by"><em>By {{#link-to 'profile' user.id}}{{user.name}}{{/link-to}} {{answer.date}} ago</em> <span class="glyphicon glyphicon-pencil edit-link" {{action 'showUpdate' answer}}></span></p>
     </div>
   </div>
 </div>

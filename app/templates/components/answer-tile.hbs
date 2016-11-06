@@ -8,7 +8,7 @@
     {{#if (eq answerToUpdate answer.id)}}
       {{update-answer answer=answer question=question cancel="cancelUpdate" update="update" delete="delete"}}
     {{else}}
-      {{display-answer answer=answer}}
+      {{display-answer answer=answer upvote='upvote' downvote='downvote' showUpdate='showUpdate'}}
       {{/if}}
   {{/each}}
 </div>

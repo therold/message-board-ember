@@ -5,5 +5,10 @@
 
 <h3>{{model.user.name}}'s Answers:</h3>
 {{#each model.answers as |answer|}}
-  {{short-answer answer=answer}}
+  {{#link-to 'question' answer.question}}
+    <div class='shortAnswerDisplay'>
+        {{short-answer answer=answer}}
+    </div>
+    {{/link-to}}
+    <hr>
 {{/each}}
